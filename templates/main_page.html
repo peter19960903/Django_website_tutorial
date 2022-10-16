@@ -10,11 +10,14 @@
     <h1>歡迎來到實驗預約系統!</h1>
     {% if request.user.is_authenticated %}
         <p>Hi~ {{request.user}} 您已經登入囉~!</p>
+        <a href= "{% url 'Order_System:order_list' %}">查看目前預約狀態</a><br>
+        <a href= "{% url 'Order_System:order' %}">預約</a><br>
         <a href= "{% url 'log_out' %}">登出</a>
         {% comment %} <a href= "{% url 'log_out' %}?next={{request.path}}">登出</a> {% endcomment %}
     {% else %}
         <p>您尚未登入唷~</p>
-        <a href= "{% url 'login' %}">回到登入頁面</a>
+        <a href= "{% url 'login' %}">回到登入頁面</a><br>
+        <a href= "{% url 'Order_System:order_list' %}">查看目前預約狀態</a>
         {% comment %} a href= "{% url 'login' %}?next={{request.path}}">回到登入頁面</a> {% endcomment %}
     {% endif %}
     

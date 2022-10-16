@@ -1,16 +1,22 @@
 from django.views.generic import TemplateView, CreateView, ListView, DetailView, UpdateView, DeleteView
 from .models import account_info
 from django.urls import reverse, reverse_lazy
-from django.contrib import auth
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
+from django.contrib.auth.models import User
 
 
-class OrderCreateView(CreateView):
+
+class OrderCreateView(LoginRequiredMixin, CreateView):
     # template_name = "Django_app/account_info.html"
+    login_url = "/login"
     model = account_info
-    fields = "__all__"
+    fields = ["account_name","account_email", "account_order"]
     success_url = reverse_lazy("Order_System:finish")
-    
+   
+    def form_valid(self, form):
+        form.instance.created_by = self.request.user
+        return super().form_valid(form)
 
 class FinishView(TemplateView):
     template_name = "Django_app/finish.html"

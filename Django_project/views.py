@@ -6,9 +6,6 @@ from django.contrib import auth
 from django.shortcuts import render
 from django.contrib.auth.forms import UserCreationForm
 
-class home_view(TemplateView):
-    template_name = 'home.html'
-
 def login(request):
     if request.user.is_authenticated:
         return HttpResponseRedirect('/main_page')
