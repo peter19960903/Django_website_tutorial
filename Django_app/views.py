@@ -8,7 +8,6 @@ from django.contrib.auth.models import User
 
 
 class OrderCreateView(LoginRequiredMixin, CreateView):
-    # template_name = "Django_app/account_info.html"
     login_url = "/login"
     model = account_info
     fields = ["account_name","account_email", "account_order"]
