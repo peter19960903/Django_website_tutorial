@@ -106,32 +106,55 @@ img {
 <body>
   <h1>實驗預約系統</h1><br>
 
-<div><form method="post" class="center">
-      {% csrf_token %}
-      <div><table class="center">
+<div>
+  <form method="post" class="center">
+    {% csrf_token %}
+    <div>
+      <table class="center">
         <caption>This is a table description</caption>
-        <tr>
-          <td width="16%" align="right">帳號:</td>
-          <td width="84%"><input type="text" name="username" id="username"></td>
-        </tr>
-        <tr>
-          <td width="16%" align="right">密碼:</td>
-          <td width="84%"><input type="password" name="password" id = "password" ></td>
-        </tr>
-        <tr>
-          <div><td><p><input type="submit" name="login" value="登入"></p></td></div>
-          <div><td>
-            <p>
-              <button type="button">
-                <a href= "{% url 'main_page' %}">訪客登入</a>
-              </button>
-            </p>
-          </td></div>
-          <div><td><a href="{% url 'sign_up' %}">註冊</a></td></div>  
-          
-        </tr>
-      </table></div>   
-  </form></div>
+        <thead>
+          <tr>
+            <th width="16%" align="right">項目</th>
+            <th width="84%">輸入</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td width="16%" align="right">帳號:</td>
+            <td width="84%"><input type="text" name="username" id="username"></td>
+          </tr>
+          <tr>
+            <td width="16%" align="right">密碼:</td>
+            <td width="84%"><input type="password" name="password" id="password"></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <p><input type="submit" name="login" value="登入"></p>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <p>
+                <button type="button">
+                  <a href="{% url 'main_page' %}">訪客登入</a>
+                </button>
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <a href="{% url 'sign_up' %}">註冊</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </form>
+</div>
+
 
     <!-- <div><img src="img/CUTE.png" alt="Cute" ></div> -->
     <div class="color-lump"></div>
