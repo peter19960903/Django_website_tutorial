@@ -21,7 +21,12 @@ def login(request):
         auth.login(request, user)
         return HttpResponseRedirect(MAIN_PAGE_URL)
     else:
-        return render(request, 'login.html', locals())
+         context = {
+            'username': username,
+            'password': password,
+            'error_message': 'Invalid username or password',  # You can customize the error message
+        }
+        return render(request, 'login.html', context)
 
 def main_page(request):
     return render(request, 'main_page.html')
