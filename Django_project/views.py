@@ -28,7 +28,7 @@ def main_page(request):
 
 def log_out(request):
     auth.logout(request)
-    return HttpResponseRedirect('/main_page')
+    return HttpResponseRedirect(MAIN_PAGE_URL)
 
 
 
