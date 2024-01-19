@@ -6,15 +6,20 @@ from django.contrib import auth
 from django.shortcuts import render
 from django.contrib.auth.forms import UserCreationForm
 
+MAIN_PAGE_URL = '/main_page'
+
 def login(request):
     if request.user.is_authenticated:
-        return HttpResponseRedirect('/main_page')
+        return HttpResponseRedirect(MAIN_PAGE_URL)
+    
     username = request.POST.get('username')
     password = request.POST.get('password')
+    
     user = auth.authenticate(username=username, password=password)
+    
     if user is not None and user.is_active:
         auth.login(request, user)
-        return HttpResponseRedirect('/main_page')
+        return HttpResponseRedirect(MAIN_PAGE_URL)
     else:
         return render(request, 'login.html', locals())
 
