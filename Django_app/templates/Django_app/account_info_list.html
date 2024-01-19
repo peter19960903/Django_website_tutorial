@@ -10,7 +10,9 @@
 <body>
     <form method="POST">
         {% for data in object_list %}
-            <li>預約人姓名:{{data.account_name}} 預約時間 {{data.account_order}} </li>
+            <ul>
+                <li>預約人姓名:{{data.account_name}} 預約時間 {{data.account_order}} </li>
+            </ul>
         {% endfor %}
     </form>
     
