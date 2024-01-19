@@ -22,14 +22,10 @@ class FinishView(TemplateView):
 
 
 class OrderListView(ListView):
-    # model_list.html
     model = account_info
-    #context_object_name = Order_list
-    # queryset = account_info.objects.all()
+   
 
 class OrderDetailView(DetailView):
-    #account_info_detail.html
-    # context_object_name = 'ouo'
     model = account_info
 
 class OrderUpdateView(UpdateView):
